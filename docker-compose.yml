@@ -1,0 +1,17 @@
+# AMAZON-ASK-CLI
+# https://developer.amazon.com/docs/smapi/ask-cli-command-reference.html
+#
+version: "3.1"
+
+services:
+    nodejs:
+        build: ./build
+        hostname: nodejs
+        networks:
+         - server
+        volumes:
+          - ./cli-config:/home/node/.ask/cli_config
+          - /etc/localtime:/etc/localtime:ro
+        tty: true
+networks:
+    server:
