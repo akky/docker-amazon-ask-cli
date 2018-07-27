@@ -1,0 +1,15 @@
+# additional configs for case proxy is required to build(args) and/or run(environment)
+version: "3.1"
+
+services:
+
+  nodejs:
+    build:
+      args:
+        - http_proxy
+        - https_proxy
+        - no_proxy
+    environment:
+      - http_proxy=${HTTP_PROXY}
+      - https_proxy=${HTTP_PROXY}
+      - no_proxy=${NO_PROXY}

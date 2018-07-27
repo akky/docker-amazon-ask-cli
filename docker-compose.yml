@@ -9,9 +9,12 @@ services:
         hostname: nodejs
         networks:
          - server
+        environment:
+            AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+            AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
         volumes:
           - ./cli-config:/home/node/.ask/cli_config
-          - /etc/localtime:/etc/localtime:ro
+          #- /etc/localtime:/etc/localtime:ro
         tty: true
 networks:
     server:
